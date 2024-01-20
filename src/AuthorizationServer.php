@@ -153,10 +153,10 @@ class AuthorizationServer implements EmitterAwareInterface
     /**
      * Complete a device authorization request
      */
-    public function completeDeviceAuthorizationRequest(string $deviceCode, string|int $userId): ResponseInterface
+    public function completeDeviceAuthorizationRequest(string $deviceCode, string|int $userId, bool $authorized): ResponseInterface
     {
         return $this->enabledGrantTypes['urn:ietf:params:oauth:grant-type:device_code']
-            ->completeDeviceAuthorizationRequest($deviceCode, $userId)
+            ->completeDeviceAuthorizationRequest($deviceCode, $userId, $authorized)
             ->generateHttpResponse($response);
     }
 
